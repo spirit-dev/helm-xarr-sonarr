@@ -1,5 +1,7 @@
 # Welcome to sonarr
 
+[![App Status](https://argocd-internal.spirit-dev.net/api/badge?name=sonarr-turingpi&revision=true&showAppName=true)](https://argocd-internal.spirit-dev.net/applications/sonarr-turingpi)
+
 ## Table of content
 
 - [Welcome to sonarr](#welcome-to-sonarr)
