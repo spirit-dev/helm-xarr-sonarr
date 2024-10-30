@@ -4,9 +4,7 @@
 
 ## Table of content
 
-- [Welcome to sonarr](#welcome-to-sonarr)
-  - [Table of content](#table-of-content)
-  - [Installation process](#installation-process)
+[[_TOC_]]
 
 ## Installation process
 
