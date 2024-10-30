@@ -1,0 +1,56 @@
+sonarr:
+  fullnameOverride: sonarr-nas
+
+  controller:
+    labels:
+      spirit-dev.cluster-mngt.scale.sequence: "2"
+
+  image:
+    repository: lscr.io/linuxserver/sonarr
+    tag: latest
+
+  ingress:
+    main:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: traefik-internal
+      ingressClassName: traefik-internal
+      hosts:
+        - host: sonarr-nas.local.lan
+          paths:
+            - path: "/"
+
+    private:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: traefik-external-private
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        external-dns.alpha.kubernetes.io/target: hopto-tpi-external-private.spirit-dev.net
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingressClassName: traefik-external-private
+      tls:
+        - hosts:
+            - sonarr-nas-internal.spirit-dev.net
+          secretName: sonarr-nas-external-private-tls
+      hosts:
+        - host: sonarr-nas-internal.spirit-dev.net
+          paths:
+            - path: "/"
+
+  persistence:
+    config:
+      enabled: true
+      storageClass: longhorn
+
+    media:
+      enabled: true
+      mountPath: /media
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: "20Gi"
+
+    # transmission-downloads:
+    #   enabled: true
+    #   existingClaim: transmission-downloads
+    #   mountPath: "/downloads/transmission"
+    #   subPath: "downloads/transmission"
