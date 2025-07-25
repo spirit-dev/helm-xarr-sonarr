@@ -3,16 +3,13 @@
 # Service
 NAMESPACE = transmission
 RELEASE_NAME = sonarr-turingpi
-# RELEASE_NAME = sonarr-nas-turingpi
 # ENV ?= ### Specify the env to use
 ENV = turingpi
-# ENV = turingpi-nas
 pod := $$(kubectl get pods -n ${NAMESPACE} |  grep -m1 ${RELEASE_NAME} | cut -d' ' -f1)
 
 # Current dir
 CURRENT_DIR = $(shell pwd)
 HELM_CHART_DIR = ${CURRENT_DIR}/helm
-HELM_OFFICIAL_CHART = https://k8s-at-home.com/charts/
 
 # HELM
 HELM_BIN ?= helm
