@@ -25,9 +25,9 @@ spec:
     driver: smb.csi.k8s.io
     # volumeHandle format: {smb-server-address}#{sub-dir-name}#{share-name}
     # make sure this value is unique for every share in the cluster
-    volumeHandle: nas.local.lan/JB-Remote-folder##
+    volumeHandle: nas.local.lan/Remote-folder##
     volumeAttributes:
-      source: //192.168.0.52/JB-Remote-folder
+      source: //192.168.0.10/remote-folder
     nodeStageSecretRef:
       name: smbcreds
       namespace: transmission

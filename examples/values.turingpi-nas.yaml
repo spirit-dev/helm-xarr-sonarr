@@ -31,7 +31,7 @@ sonarr:
       tls:
         - hosts:
             - sonarr-nas-internal.spirit-dev.net
-          secretName: sonarr-nas-external-private-tls
+          secretName: sonarr-nas-external-private-tls # pragma: allowlist secret
       hosts:
         - host: sonarr-nas-internal.spirit-dev.net
           paths:
