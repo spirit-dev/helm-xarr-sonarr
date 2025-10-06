@@ -6,7 +6,7 @@ sonarr:
       spirit-dev.cluster-mngt.scale.sequence: "2"
 
   image:
-    repository: lscr.io/linuxserver/sonarr
+    repository: quay.io/linuxserver.io/sonarr
     tag: latest
 
   ingress:
